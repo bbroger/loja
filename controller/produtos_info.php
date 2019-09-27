@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 
 $smarty = new Template();
 
@@ -33,6 +32,5 @@ foreach ($produtos->GetItens() as $pro) {
 $smarty->display('produtos_info.tpl');
 
 
-
- ?>
+?>
 

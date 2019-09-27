@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 
 date_default_timezone_set('America/Sao_Paulo');
 
-if(!isset($_SESSION)){
-	session_start();
-	
+if (!isset($_SESSION)) {
+    session_start();
+
 }
 
 /*
@@ -41,11 +41,11 @@ $smarty->assign('DATA', Sistema::DataAtualBR());
 $smarty->assign('PAG_LOGOFF', Rotas::pag_Logoff());
 $smarty->assign('LOGADO', Login::Logado());
 
-if(Login::Logado()){
-	$smarty->assign('USER', $_SESSION['CLI']['cli_nome']);
-	
+if (Login::Logado()) {
+    $smarty->assign('USER', $_SESSION['CLI']['cli_nome']);
+
 }
 
 
 $smarty->display('index.tpl');
- ?>
+?>

@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 
 date_default_timezone_set('America/Sao_Paulo');
 
-if(!isset($_SESSION)){
-	session_start();
-	
+if (!isset($_SESSION)) {
+    session_start();
+
 }
 
 /*
@@ -20,9 +20,9 @@ if(!isset($_SESSION['PED']['ref'])){
 
 require '../lib/autoload.php';
 
-if(!Login::LogadoADM()){
-	Rotas::Redirecionar(1, 'login.php');
-	exit('<h2>Erro! Acesso negado </h2>');
+if (!Login::LogadoADM()) {
+    Rotas::Redirecionar(1, 'login.php');
+    exit('<h2>Erro! Acesso negado </h2>');
 }
 
 
@@ -52,12 +52,12 @@ $smarty->assign('LOGADO', Login::LogadoADM());
 //$smarty->assign('PAG_SENHA', Rotas::get_SiteADM() .'/adm_senha');
 
 
-if(Login::LogadoADM()){
-	$smarty->assign('USER', $_SESSION['ADM']['user_nome']);
-	$smarty->assign('DATA', $_SESSION['ADM']['user_data']);
-	$smarty->assign('HORA', $_SESSION['ADM']['user_hora']);
+if (Login::LogadoADM()) {
+    $smarty->assign('USER', $_SESSION['ADM']['user_nome']);
+    $smarty->assign('DATA', $_SESSION['ADM']['user_data']);
+    $smarty->assign('HORA', $_SESSION['ADM']['user_hora']);
 }
 
 
 $smarty->display('adm_index.tpl');
- ?>
+?>

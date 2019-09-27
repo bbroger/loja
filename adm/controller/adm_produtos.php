@@ -1,16 +1,14 @@
-<?php 
+<?php
 
 $smarty = new Template();
 
 $produtos = new Produtos();
 
-if(isset(Rotas::$pag[1])){
-	$produtos->GetProdutosCateID(Rotas::$pag[1]);
-}else{
-	$produtos->GetProdutos();
+if (isset(Rotas::$pag[1])) {
+    $produtos->GetProdutosCateID(Rotas::$pag[1]);
+} else {
+    $produtos->GetProdutos();
 }
-
-
 
 
 $smarty->assign('PRO', $produtos->GetItens());
