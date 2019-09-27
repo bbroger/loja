@@ -1,28 +1,25 @@
-
-<?php 
+<?php
 
 $smarty = new Template();
 
 $produtos = new Produtos();
 
-if(isset(Rotas::$pag[1]) && !isset($_POST['txt_buscar'])){
-	$produtos->GetProdutosCateID(Rotas::$pag[1]);
-}elseif(isset($_POST['txt_buscar'])){
-	
-				$nome = filter_var($_POST['txt_buscar'], FILTER_SANITIZE_STRING);
-				$produtos->GetProdutosNome($nome);
+if (isset(Rotas::$pag[1]) && !isset($_POST['txt_buscar'])) {
+    $produtos->GetProdutosCateID(Rotas::$pag[1]);
+} elseif (isset($_POST['txt_buscar'])) {
 
-}elseif(isset($_POST['txt_buscar']) && isset(Rotas::$pag[1])){
-	
-				$nome = filter_var($_POST['txt_buscar'], FILTER_SANITIZE_STRING);
-				$produtos->GetProdutosNome($nome);
-	
-}else{
+    $nome = filter_var($_POST['txt_buscar'], FILTER_SANITIZE_STRING);
+    $produtos->GetProdutosNome($nome);
 
-	$produtos->GetProdutos();
+} elseif (isset($_POST['txt_buscar']) && isset(Rotas::$pag[1])) {
+
+    $nome = filter_var($_POST['txt_buscar'], FILTER_SANITIZE_STRING);
+    $produtos->GetProdutosNome($nome);
+
+} else {
+
+    $produtos->GetProdutos();
 }
-
-
 
 
 $smarty->assign('PRO', $produtos->GetItens());
@@ -35,5 +32,5 @@ $smarty->assign('PRODUTOS', Rotas::pag_Produtos());
 $smarty->display('produtos.tpl');
 
 
- ?>
+?>
 

@@ -8,7 +8,7 @@
  * @author     Uwe Tews
  *
  * @deprecated
-Smarty does no longer use @filemtime()
+ * Smarty does no longer use @filemtime()
  */
 class Smarty_Internal_ErrorHandler
 {
@@ -69,10 +69,10 @@ class Smarty_Internal_ErrorHandler
     {
         $_is_muted_directory = false;
         // add the SMARTY_DIR to the list of muted directories
-        if (!isset(self::$mutedDirectories[ SMARTY_DIR ])) {
+        if (!isset(self::$mutedDirectories[SMARTY_DIR])) {
             $smarty_dir = realpath(SMARTY_DIR);
             if ($smarty_dir !== false) {
-                self::$mutedDirectories[ SMARTY_DIR ] =
+                self::$mutedDirectories[SMARTY_DIR] =
                     array('file' => $smarty_dir, 'length' => strlen($smarty_dir),);
             }
         }
@@ -83,12 +83,12 @@ class Smarty_Internal_ErrorHandler
                 $file = realpath($key);
                 if ($file === false) {
                     // this directory does not exist, remove and skip it
-                    unset(self::$mutedDirectories[ $key ]);
+                    unset(self::$mutedDirectories[$key]);
                     continue;
                 }
                 $dir = array('file' => $file, 'length' => strlen($file),);
             }
-            if (!strncmp($errfile, $dir[ 'file' ], $dir[ 'length' ])) {
+            if (!strncmp($errfile, $dir['file'], $dir['length'])) {
                 $_is_muted_directory = true;
                 break;
             }

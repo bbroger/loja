@@ -6,11 +6,11 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitdc91119e814e712461766207c2826c8b
 {
-    public static $files = array (
+    public static $files = array(
         'f084d01b0a599f67676cffef638aa95b' => __DIR__ . '/..' . '/smarty/smarty/libs/bootstrap.php',
     );
 
-    public static $classMap = array (
+    public static $classMap = array(
         'Carrinho' => __DIR__ . '/../..' . '/model/Carrinho.class.php',
         'Categorias' => __DIR__ . '/../..' . '/model/Categorias.class.php',
         'Clientes' => __DIR__ . '/../..' . '/model/Clientes.class.php',
@@ -20,7 +20,7 @@ class ComposerStaticInitdc91119e814e712461766207c2826c8b
         'EasyPeasyICS' => __DIR__ . '/..' . '/phpmailer/phpmailer/extras/EasyPeasyICS.php',
         'EnviarEmail' => __DIR__ . '/../..' . '/model/EnviarEmail.class.php',
         'ImageUpload' => __DIR__ . '/../..' . '/model/ImageUpload.class.php',
-        'Itens' => __DIR__ . '/../..' . '/model/Itens.class.php',
+        'Itens' => __DIR__ . '/../..' . '/model/ItensPedido.class.php',
         'Login' => __DIR__ . '/../..' . '/model/Login.class.php',
         'PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmailer.php',
         'PHPMailerOAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmaileroauth.php',

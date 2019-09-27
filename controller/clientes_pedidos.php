@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $smarty = new Template();
 
@@ -17,4 +17,4 @@ $smarty->assign('PAGINAS', $pedidos->ShowPaginacao());
 
 $smarty->display('clentes_pedidos.tpl');
 
- ?>
+?>

@@ -5,6 +5,4 @@ $smarty->assign('CONTATO', 'Página de Contatos');
 $smarty->display('contato.tpl');
 
 
-
-
 ?>

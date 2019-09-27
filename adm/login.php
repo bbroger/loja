@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 date_default_timezone_set('America/Sao_Paulo');
 
-if(!isset($_SESSION)){
-	session_start();
-	
+if (!isset($_SESSION)) {
+    session_start();
+
 }
 
 
@@ -13,51 +13,49 @@ require '../lib/autoload.php';
 $smarty = new Template();
 
 
-if(isset($_POST['recovery'])):
-    
- 
+if (isset($_POST['recovery'])):
+
+
     // obejto USER
     $user = new User();
-   // passo alguns valores
+    // passo alguns valores
     $email = $_POST['txt_email'];
     $senha = Sistema::GerarSenha();
     // verifico se tem este email na tabela 
-    if($user->GetUserEmail($email) > 0):
-        
+    if ($user->GetUserEmail($email) > 0):
+
         // faz alteração 
-        $user->AlterarSenha($senha, $email);  
-        
-          // apos alterar envia email com a nova senha
-         $enviar = new EnviarEmail();
-         
-         $assunto = 'Nova senha ADM do site '. Sistema::DataAtualBR();
-         $destinatarios = array($email,  Config::SITE_EMAIL_ADM);
-         $msg = ' Nova senha no ADM do site, nova senha:  ' .$senha;
-         
-         
-         $enviar->Enviar($assunto, $msg, $destinatarios);
-         
-           echo '<div class="alert alert-success"> Foi enviado um email com a NOVA SENHA  </div>';
-         
-         
+        $user->AlterarSenha($senha, $email);
+
+        // apos alterar envia email com a nova senha
+        $enviar = new EnviarEmail();
+
+        $assunto = 'Nova senha ADM do site ' . Sistema::DataAtualBR();
+        $destinatarios = array($email, Config::SITE_EMAIL_ADM);
+        $msg = ' Nova senha no ADM do site, nova senha:  ' . $senha;
+
+
+        $enviar->Enviar($assunto, $msg, $destinatarios);
+
+        echo '<div class="alert alert-success"> Foi enviado um email com a NOVA SENHA  </div>';
+
+
     else:
-        
-         echo '<div class="alert alert-danger"> Email não encontrado </div>';
+
+        echo '<div class="alert alert-danger"> Email não encontrado </div>';
     endif;
- endif;
+endif;
 
 
+if (isset($_POST['txt_logar']) && isset($_POST['txt_email'])) {
+    $user = $_POST['txt_email'];
+    $senha = $_POST['txt_senha'];
+    $login = new Login();
+    if ($login->GetLoginADM($user, $senha)) {
 
-
-if(isset($_POST['txt_logar']) && isset($_POST['txt_email'])){
-	$user = $_POST['txt_email'];
-	$senha = $_POST['txt_senha'];
-	$login = new Login();
-	if($login->GetLoginADM($user, $senha)){
-		
-		Rotas::Redirecionar(0, 'index.php');
-		exit();
-	}
+        Rotas::Redirecionar(0, 'index.php');
+        exit();
+    }
 }
 
 

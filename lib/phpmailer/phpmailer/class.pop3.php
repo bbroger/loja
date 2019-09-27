@@ -34,7 +34,7 @@ class POP3
      * @var string
      * @access public
      */
-    public $Version = '5.2.25';
+    public $Version = '5.2.27';
 
     /**
      * Default POP3 port number.
@@ -144,7 +144,8 @@ class POP3
         $username = '',
         $password = '',
         $debug_level = 0
-    ) {
+    )
+    {
         $pop = new POP3;
         return $pop->authorise($host, $port, $timeout, $username, $password, $debug_level);
     }
